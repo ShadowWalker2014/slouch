@@ -107,7 +107,10 @@ export default function sketch(p) {
         p.fill(0, 0, 0, 0);
 
         cocoDrawings.map((drawing) => {
-            if (drawing) {
+            if (
+                drawing &
+                ((drawing.score > 0.7) & (drawing.class == "person"))
+            ) {
                 p.textSize(20);
                 p.strokeWeight(1);
                 const textX = drawing.bbox[0] + drawing.bbox[2];
